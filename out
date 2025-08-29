@@ -1,0 +1,317 @@
+    │
+    = `public` functions can be called from PTBs. `entry` can be used to allow non-`public` functions to be called from PTBs, but it adds restrictions on the usage of input arguments and on the type of return values. Unless this `public` function interacts with an intricate set of other `entry` functions, the `entry` modifier should be removed.
+    = This warning can be suppressed with '#[allow(lint(public_entry))]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+Failed to build Move modules: Compilation error.
+(base) sahikaaleynayener@192 contract % clear
+(base) sahikaaleynayener@192 contract % sui move build
+[note] Dependencies on Bridge, MoveStdlib, Sui, and SuiSystem are automatically added, but this feature is disabled for your package because you have explicitly included dependencies on Sui. Consider removing these dependencies from Move.toml.
+UPDATING GIT DEPENDENCY https://github.com/MystenLabs/sui.git
+INCLUDING DEPENDENCY Sui
+INCLUDING DEPENDENCY MoveStdlib
+BUILDING mintNft
+warning[W09001]: unused alias
+  ┌─ ./sources/mintnft.move:5:26
+  │
+5 │ use sui::display::{Self, Display};
+  │                          ^^^^^^^ Unused 'use' of alias 'Display'. Consider removing it
+  │
+  = This warning can be suppressed with '#[allow(unused_use)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[W09001]: unused alias
+  ┌─ ./sources/mintnft.move:8:20
+  │
+8 │ use sui::transfer::share_object;
+  │                    ^^^^^^^^^^^^ Unused 'use' of alias 'share_object'. Consider removing it
+  │
+  = This warning can be suppressed with '#[allow(unused_use)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[Lint W99010]: unnecessary `entry` on a `public` function
+   ┌─ ./sources/mintnft.move:79:8
+   │
+79 │ public entry fun mint(
+   │        ^^^^^ `entry` on `public` functions limits composability as it adds restrictions, e.g. the type of each return value must have `drop`. `entry` on `public` is only meaningful in niche scenarios.
+   │
+   = `public` functions can be called from PTBs. `entry` can be used to allow non-`public` functions to be called from PTBs, but it adds restrictions on the usage of input arguments and on the type of return values. Unless this `public` function interacts with an intricate set of other `entry` functions, the `entry` modifier should be removed.
+   = This warning can be suppressed with '#[allow(lint(public_entry))]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[Lint W99010]: unnecessary `entry` on a `public` function
+    ┌─ ./sources/mintnft.move:107:8
+    │
+107 │ public entry fun update_nft(nft: &mut Nft, name: String) {
+    │        ^^^^^ `entry` on `public` functions limits composability as it adds restrictions, e.g. the type of each return value must have `drop`. `entry` on `public` is only meaningful in niche scenarios.
+    │
+    = `public` functions can be called from PTBs. `entry` can be used to allow non-`public` functions to be called from PTBs, but it adds restrictions on the usage of input arguments and on the type of return values. Unless this `public` function interacts with an intricate set of other `entry` functions, the `entry` modifier should be removed.
+    = This warning can be suppressed with '#[allow(lint(public_entry))]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[Lint W99010]: unnecessary `entry` on a `public` function
+    ┌─ ./sources/mintnft.move:113:8
+    │
+113 │ public entry fun update_nft_metadata(nftMetadata: &mut NftMetadata, ctx: &mut TxContext) {
+    │        ^^^^^ `entry` on `public` functions limits composability as it adds restrictions, e.g. the type of each return value must have `drop`. `entry` on `public` is only meaningful in niche scenarios.
+    │
+    = `public` functions can be called from PTBs. `entry` can be used to allow non-`public` functions to be called from PTBs, but it adds restrictions on the usage of input arguments and on the type of return values. Unless this `public` function interacts with an intricate set of other `entry` functions, the `entry` modifier should be removed.
+    = This warning can be suppressed with '#[allow(lint(public_entry))]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+Please report feedback on the linter warnings at https://forums.sui.io
+
+(base) sahikaaleynayener@192 contract % sui client publish
+[warning] Client/Server api version mismatch, client api version : 1.54.1, server api version : 1.55.0
+[Note]: Dependency sources are no longer verified automatically during publication and upgrade. You can pass the `--verify-deps` option if you would like to verify them as part of publication or upgrade.
+[note] Dependencies on Bridge, MoveStdlib, Sui, and SuiSystem are automatically added, but this feature is disabled for your package because you have explicitly included dependencies on Sui. Consider removing these dependencies from Move.toml.
+UPDATING GIT DEPENDENCY https://github.com/MystenLabs/sui.git
+remote: Enumerating objects: 1, done.
+remote: Counting objects: 100% (1/1), done.
+remote: Total 1 (delta 0), reused 1 (delta 0), pack-reused 0 (from 0)
+Nesneler alınıyor: 100% (1/1), 405 bayt | 202.00 KiB/sn, bitti.
+Şu konumdan: https://github.com/MystenLabs/sui
+ + fe1399c7...c910d1d7 mdgeorge/pkg-alt-linkage-fix -> origin/mdgeorge/pkg-alt-linkage-fix  (zorlanmış güncelleme)
+INCLUDING DEPENDENCY Sui
+INCLUDING DEPENDENCY MoveStdlib
+BUILDING mintNft
+warning[W09001]: unused alias
+  ┌─ /Users/sahikaaleynayener/mintNftLesson/contract/sources/mintnft.move:5:26
+  │
+5 │ use sui::display::{Self, Display};
+  │                          ^^^^^^^ Unused 'use' of alias 'Display'. Consider removing it
+  │
+  = This warning can be suppressed with '#[allow(unused_use)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[W09001]: unused alias
+  ┌─ /Users/sahikaaleynayener/mintNftLesson/contract/sources/mintnft.move:8:20
+  │
+8 │ use sui::transfer::share_object;
+  │                    ^^^^^^^^^^^^ Unused 'use' of alias 'share_object'. Consider removing it
+  │
+  = This warning can be suppressed with '#[allow(unused_use)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[Lint W99010]: unnecessary `entry` on a `public` function
+   ┌─ /Users/sahikaaleynayener/mintNftLesson/contract/sources/mintnft.move:79:8
+   │
+79 │ public entry fun mint(
+   │        ^^^^^ `entry` on `public` functions limits composability as it adds restrictions, e.g. the type of each return value must have `drop`. `entry` on `public` is only meaningful in niche scenarios.
+   │
+   = `public` functions can be called from PTBs. `entry` can be used to allow non-`public` functions to be called from PTBs, but it adds restrictions on the usage of input arguments and on the type of return values. Unless this `public` function interacts with an intricate set of other `entry` functions, the `entry` modifier should be removed.
+   = This warning can be suppressed with '#[allow(lint(public_entry))]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[Lint W99010]: unnecessary `entry` on a `public` function
+    ┌─ /Users/sahikaaleynayener/mintNftLesson/contract/sources/mintnft.move:107:8
+    │
+107 │ public entry fun update_nft(nft: &mut Nft, name: String) {
+    │        ^^^^^ `entry` on `public` functions limits composability as it adds restrictions, e.g. the type of each return value must have `drop`. `entry` on `public` is only meaningful in niche scenarios.
+    │
+    = `public` functions can be called from PTBs. `entry` can be used to allow non-`public` functions to be called from PTBs, but it adds restrictions on the usage of input arguments and on the type of return values. Unless this `public` function interacts with an intricate set of other `entry` functions, the `entry` modifier should be removed.
+    = This warning can be suppressed with '#[allow(lint(public_entry))]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[Lint W99010]: unnecessary `entry` on a `public` function
+    ┌─ /Users/sahikaaleynayener/mintNftLesson/contract/sources/mintnft.move:113:8
+    │
+113 │ public entry fun update_nft_metadata(nftMetadata: &mut NftMetadata, ctx: &mut TxContext) {
+    │        ^^^^^ `entry` on `public` functions limits composability as it adds restrictions, e.g. the type of each return value must have `drop`. `entry` on `public` is only meaningful in niche scenarios.
+    │
+    = `public` functions can be called from PTBs. `entry` can be used to allow non-`public` functions to be called from PTBs, but it adds restrictions on the usage of input arguments and on the type of return values. Unless this `public` function interacts with an intricate set of other `entry` functions, the `entry` modifier should be removed.
+    = This warning can be suppressed with '#[allow(lint(public_entry))]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+Please report feedback on the linter warnings at https://forums.sui.io
+
+Skipping dependency verification
+Transaction Digest: DakLotcunKY2r7gxLvPsqK6jXxfXPQqqmhwdDqT5tRqm
+╭──────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Transaction Data                                                                                             │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Sender: 0xeb3e14ab6909942b4026b95efdeb6cc6dd219803f045d321395d09fa565706f1                                   │
+│ Gas Owner: 0xeb3e14ab6909942b4026b95efdeb6cc6dd219803f045d321395d09fa565706f1                                │
+│ Gas Budget: 21699200 MIST                                                                                    │
+│ Gas Price: 1000 MIST                                                                                         │
+│ Gas Payment:                                                                                                 │
+│  ┌──                                                                                                         │
+│  │ ID: 0xf8c131c20e95f85a4deccec196e8f0c9232212976bd75f7df6cc898f71d9926c                                    │
+│  │ Version: 349180454                                                                                        │
+│  │ Digest: 14VwMeEV9NqQgTh8kvAPQmBdCPNcavVtXN3Pa7rPKe5X                                                      │
+│  └──                                                                                                         │
+│                                                                                                              │
+│ Transaction Kind: Programmable                                                                               │
+│ ╭──────────────────────────────────────────────────────────────────────────────────────────────────────────╮ │
+│ │ Input Objects                                                                                            │ │
+│ ├──────────────────────────────────────────────────────────────────────────────────────────────────────────┤ │
+│ │ 0   Pure Arg: Type: address, Value: "0xeb3e14ab6909942b4026b95efdeb6cc6dd219803f045d321395d09fa565706f1" │ │
+│ ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────╯ │
+│ ╭─────────────────────────────────────────────────────────────────────────╮                                  │
+│ │ Commands                                                                │                                  │
+│ ├─────────────────────────────────────────────────────────────────────────┤                                  │
+│ │ 0  Publish:                                                             │                                  │
+│ │  ┌                                                                      │                                  │
+│ │  │ Dependencies:                                                        │                                  │
+│ │  │   0x0000000000000000000000000000000000000000000000000000000000000001 │                                  │
+│ │  │   0x0000000000000000000000000000000000000000000000000000000000000002 │                                  │
+│ │  └                                                                      │                                  │
+│ │                                                                         │                                  │
+│ │ 1  TransferObjects:                                                     │                                  │
+│ │  ┌                                                                      │                                  │
+│ │  │ Arguments:                                                           │                                  │
+│ │  │   Result 0                                                           │                                  │
+│ │  │ Address: Input  0                                                    │                                  │
+│ │  └                                                                      │                                  │
+│ ╰─────────────────────────────────────────────────────────────────────────╯                                  │
+│                                                                                                              │
+│ Signatures:                                                                                                  │
+│    5Uuw7XCoETv+4OnYwud6ULyffwTg2qXo7s6wuukPp43nO8gORidJQ9tm+6ek2SaGgFPGshuwjv64+3BfCgoyDw==                  │
+│                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭───────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Transaction Effects                                                                               │
+├───────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Digest: DakLotcunKY2r7gxLvPsqK6jXxfXPQqqmhwdDqT5tRqm                                              │
+│ Status: Success                                                                                   │
+│ Executed Epoch: 840                                                                               │
+│                                                                                                   │
+│ Created Objects:                                                                                  │
+│  ┌──                                                                                              │
+│  │ ID: 0x12879105064124734e7f0353e7de7dd82ff83b1050de5b8983f5d3142ca22790                         │
+│  │ Owner: Account Address ( 0xeb3e14ab6909942b4026b95efdeb6cc6dd219803f045d321395d09fa565706f1 )  │
+│  │ Version: 349180455                                                                             │
+│  │ Digest: HGyi2nAyKq46ExUUnHsEtiKotGpaRovppuW4Kyd9ti7Z                                           │
+│  └──                                                                                              │
+│  ┌──                                                                                              │
+│  │ ID: 0x3f08e665ec4c2594729a8fe791df1bd2e9ede895d1640de7ad3acf1fb4010f28                         │
+│  │ Owner: Account Address ( 0xeb3e14ab6909942b4026b95efdeb6cc6dd219803f045d321395d09fa565706f1 )  │
+│  │ Version: 349180455                                                                             │
+│  │ Digest: CjeiGBcfPEbzjWj7YnC8k3QAeWe6s8cxxeKrrKqaJic6                                           │
+│  └──                                                                                              │
+│  ┌──                                                                                              │
+│  │ ID: 0x7c768e4ab2c76e00b85318febdc01730dd99792715a26601918eee5fcedf6383                         │
+│  │ Owner: Immutable                                                                               │
+│  │ Version: 1                                                                                     │
+│  │ Digest: 726jZ7JdCsHHXQEFqji164wzn4yPC2VkVHwa4cWWQoLk                                           │
+│  └──                                                                                              │
+│  ┌──                                                                                              │
+│  │ ID: 0x8da5785a0afc93c041fc36cb449e80495eb305391108579431d322536af6bc62                         │
+│  │ Owner: Account Address ( 0xeb3e14ab6909942b4026b95efdeb6cc6dd219803f045d321395d09fa565706f1 )  │
+│  │ Version: 349180455                                                                             │
+│  │ Digest: 5Dm72y9uZtmPWzxftL54x3xtAfgYMbFHiFJWYikZgdp2                                           │
+│  └──                                                                                              │
+│  ┌──                                                                                              │
+│  │ ID: 0xf0182ba3542a979c600ab1a868ad9cd1dbc6a462377f4c502a39de8cbe389b5c                         │
+│  │ Owner: Shared( 349180455 )                                                                     │
+│  │ Version: 349180455                                                                             │
+│  │ Digest: FtvpC1NPpaKkAQbJV3mdHYbVbGdaFN5kLEuX2ZKeYugf                                           │
+│  └──                                                                                              │
+│ Mutated Objects:                                                                                  │
+│  ┌──                                                                                              │
+│  │ ID: 0xf8c131c20e95f85a4deccec196e8f0c9232212976bd75f7df6cc898f71d9926c                         │
+│  │ Owner: Account Address ( 0xeb3e14ab6909942b4026b95efdeb6cc6dd219803f045d321395d09fa565706f1 )  │
+│  │ Version: 349180455                                                                             │
+│  │ Digest: BzMWTLyfdkqG86gmqPVnfrmdwFsqeiLkdEuywCY7QhbU                                           │
+│  └──                                                                                              │
+│ Gas Object:                                                                                       │
+│  ┌──                                                                                              │
+│  │ ID: 0xf8c131c20e95f85a4deccec196e8f0c9232212976bd75f7df6cc898f71d9926c                         │
+│  │ Owner: Account Address ( 0xeb3e14ab6909942b4026b95efdeb6cc6dd219803f045d321395d09fa565706f1 )  │
+│  │ Version: 349180455                                                                             │
+│  │ Digest: BzMWTLyfdkqG86gmqPVnfrmdwFsqeiLkdEuywCY7QhbU                                           │
+│  └──                                                                                              │
+│ Gas Cost Summary:                                                                                 │
+│    Storage Cost: 19699200 MIST                                                                    │
+│    Computation Cost: 1000000 MIST                                                                 │
+│    Storage Rebate: 978120 MIST                                                                    │
+│    Non-refundable Storage Fee: 9880 MIST                                                          │
+│                                                                                                   │
+│ Transaction Dependencies:                                                                         │
+│    9ba1aN1tB5GxsXhnraJvhbnK86oMz99Xr1VKULV8xDwV                                                   │
+│    Eo5mFY7r6nVSjifLcz1dfKRdHkGCxhSC3qYk12TPWMZP                                                   │
+╰───────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Transaction Block Events                                                                                                     │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  ┌──                                                                                                                         │
+│  │ EventID: DakLotcunKY2r7gxLvPsqK6jXxfXPQqqmhwdDqT5tRqm:0                                                                   │
+│  │ PackageID: 0x7c768e4ab2c76e00b85318febdc01730dd99792715a26601918eee5fcedf6383                                             │
+│  │ Transaction Module: mintnft                                                                                               │
+│  │ Sender: 0xeb3e14ab6909942b4026b95efdeb6cc6dd219803f045d321395d09fa565706f1                                                │
+│  │ EventType: 0x2::display::DisplayCreated<0x7c768e4ab2c76e00b85318febdc01730dd99792715a26601918eee5fcedf6383::mintnft::Nft> │
+│  │ ParsedJSON:                                                                                                               │
+│  │   ┌────┬────────────────────────────────────────────────────────────────────┐                                             │
+│  │   │ id │ 0x8da5785a0afc93c041fc36cb449e80495eb305391108579431d322536af6bc62 │                                             │
+│  │   └────┴────────────────────────────────────────────────────────────────────┘                                             │
+│  └──                                                                                                                         │
+│  ┌──                                                                                                                         │
+│  │ EventID: DakLotcunKY2r7gxLvPsqK6jXxfXPQqqmhwdDqT5tRqm:1                                                                   │
+│  │ PackageID: 0x7c768e4ab2c76e00b85318febdc01730dd99792715a26601918eee5fcedf6383                                             │
+│  │ Transaction Module: mintnft                                                                                               │
+│  │ Sender: 0xeb3e14ab6909942b4026b95efdeb6cc6dd219803f045d321395d09fa565706f1                                                │
+│  │ EventType: 0x2::display::VersionUpdated<0x7c768e4ab2c76e00b85318febdc01730dd99792715a26601918eee5fcedf6383::mintnft::Nft> │
+│  │ ParsedJSON:                                                                                                               │
+│  │   ┌─────────┬──────────┬───────┬─────────────────────────────────────────────────┐                                        │
+│  │   │ fields  │ contents │ key   │ image_url                                       │                                        │
+│  │   │         │          ├───────┼─────────────────────────────────────────────────┤                                        │
+│  │   │         │          │ value │ {url}                                           │                                        │
+│  │   ├─────────┼──────────┴───────┴─────────────────────────────────────────────────┤                                        │
+│  │   │ id      │ 0x8da5785a0afc93c041fc36cb449e80495eb305391108579431d322536af6bc62 │                                        │
+│  │   ├─────────┼────────────────────────────────────────────────────────────────────┤                                        │
+│  │   │ version │ 1                                                                  │                                        │
+│  │   └─────────┴────────────────────────────────────────────────────────────────────┘                                        │
+│  └──                                                                                                                         │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Object Changes                                                                                                          │
+├─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Created Objects:                                                                                                        │
+│  ┌──                                                                                                                    │
+│  │ ObjectID: 0x12879105064124734e7f0353e7de7dd82ff83b1050de5b8983f5d3142ca22790                                         │
+│  │ Sender: 0xeb3e14ab6909942b4026b95efdeb6cc6dd219803f045d321395d09fa565706f1                                           │
+│  │ Owner: Account Address ( 0xeb3e14ab6909942b4026b95efdeb6cc6dd219803f045d321395d09fa565706f1 )                        │
+│  │ ObjectType: 0x2::package::UpgradeCap                                                                                 │
+│  │ Version: 349180455                                                                                                   │
+│  │ Digest: HGyi2nAyKq46ExUUnHsEtiKotGpaRovppuW4Kyd9ti7Z                                                                 │
+│  └──                                                                                                                    │
+│  ┌──                                                                                                                    │
+│  │ ObjectID: 0x3f08e665ec4c2594729a8fe791df1bd2e9ede895d1640de7ad3acf1fb4010f28                                         │
+│  │ Sender: 0xeb3e14ab6909942b4026b95efdeb6cc6dd219803f045d321395d09fa565706f1                                           │
+│  │ Owner: Account Address ( 0xeb3e14ab6909942b4026b95efdeb6cc6dd219803f045d321395d09fa565706f1 )                        │
+│  │ ObjectType: 0x2::package::Publisher                                                                                  │
+│  │ Version: 349180455                                                                                                   │
+│  │ Digest: CjeiGBcfPEbzjWj7YnC8k3QAeWe6s8cxxeKrrKqaJic6                                                                 │
+│  └──                                                                                                                    │
+│  ┌──                                                                                                                    │
+│  │ ObjectID: 0x8da5785a0afc93c041fc36cb449e80495eb305391108579431d322536af6bc62                                         │
+│  │ Sender: 0xeb3e14ab6909942b4026b95efdeb6cc6dd219803f045d321395d09fa565706f1                                           │
+│  │ Owner: Account Address ( 0xeb3e14ab6909942b4026b95efdeb6cc6dd219803f045d321395d09fa565706f1 )                        │
+│  │ ObjectType: 0x2::display::Display<0x7c768e4ab2c76e00b85318febdc01730dd99792715a26601918eee5fcedf6383::mintnft::Nft>  │
+│  │ Version: 349180455                                                                                                   │
+│  │ Digest: 5Dm72y9uZtmPWzxftL54x3xtAfgYMbFHiFJWYikZgdp2                                                                 │
+│  └──                                                                                                                    │
+│  ┌──                                                                                                                    │
+│  │ ObjectID: 0xf0182ba3542a979c600ab1a868ad9cd1dbc6a462377f4c502a39de8cbe389b5c                                         │
+│  │ Sender: 0xeb3e14ab6909942b4026b95efdeb6cc6dd219803f045d321395d09fa565706f1                                           │
+│  │ Owner: Shared( 349180455 )                                                                                           │
+│  │ ObjectType: 0x7c768e4ab2c76e00b85318febdc01730dd99792715a26601918eee5fcedf6383::mintnft::MintAddresses               │
+│  │ Version: 349180455                                                                                                   │
+│  │ Digest: FtvpC1NPpaKkAQbJV3mdHYbVbGdaFN5kLEuX2ZKeYugf                                                                 │
+│  └──                                                                                                                    │
+│ Mutated Objects:                                                                                                        │
+│  ┌──                                                                                                                    │
+│  │ ObjectID: 0xf8c131c20e95f85a4deccec196e8f0c9232212976bd75f7df6cc898f71d9926c                                         │
+│  │ Sender: 0xeb3e14ab6909942b4026b95efdeb6cc6dd219803f045d321395d09fa565706f1                                           │
+│  │ Owner: Account Address ( 0xeb3e14ab6909942b4026b95efdeb6cc6dd219803f045d321395d09fa565706f1 )                        │
+│  │ ObjectType: 0x2::coin::Coin<0x2::sui::SUI>                                                                           │
+│  │ Version: 349180455                                                                                                   │
+│  │ Digest: BzMWTLyfdkqG86gmqPVnfrmdwFsqeiLkdEuywCY7QhbU                                                                 │
+│  └──                                                                                                                    │
+│ Published Objects:                                                                                                      │
+│  ┌──                                                                                                                    │
+│  │ PackageID: 0x7c768e4ab2c76e00b85318febdc01730dd99792715a26601918eee5fcedf6383                                        │
+│  │ Version: 1                                                                                                           │
+│  │ Digest: 726jZ7JdCsHHXQEFqji164wzn4yPC2VkVHwa4cWWQoLk                                                                 │
+│  │ Modules: mintnft                                                                                                     │
+│  └──                                                                                                                    │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭───────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Balance Changes                                                                                   │
+├───────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  ┌──                                                                                              │
+│  │ Owner: Account Address ( 0xeb3e14ab6909942b4026b95efdeb6cc6dd219803f045d321395d09fa565706f1 )  │
+│  │ CoinType: 0x2::sui::SUI                                                                        │
+│  │ Amount: -19721080                                                                              │
+│  └──                                                                                              │
+╰───────────────────────────────────────────────────────────────────────────────────────────────────╯
+(base) sahikaaleynayener@192 contract % 
