@@ -37,7 +37,8 @@ function DisplayNft({ refreshKey }: { refreshKey: number }) {
         showContent: true,
       },
       filter: {
-        StructType: // TODO: Add the struct type for the NFT
+        StructType: `${packageId}::mintnft::Nft`
+
       },
     },
     {
